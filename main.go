@@ -42,12 +42,12 @@ func mainHandle(w http.ResponseWriter, req *http.Request) {
 		cafe = found
 	}
 	count = min(count, len(cafe))
-	answer := strings.Join(cafe[:count], ",")
+	answer := strings.Join(cafe[:count], ", ")
 	io.WriteString(w, answer)
 }
 
 func main() {
-	http.HandleFunc(`/cafe`, mainHandle)
+	http.HandleFunc("/cafe", mainHandle)
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		panic(err)
